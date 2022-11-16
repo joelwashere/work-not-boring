@@ -14,6 +14,12 @@ body {
   box-sizing: border-box;
 }
 
+@layer base {
+  .react-icons {
+    vertical-align: middle;
+  }
+}
+
 @layer components {
 
 }

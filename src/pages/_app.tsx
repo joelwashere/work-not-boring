@@ -1,5 +1,5 @@
 import type { AppProps } from 'next/app';
-import type { FC } from 'react';
+import { FC, useEffect, useState } from 'react';
 import { IconContext } from 'react-icons';
 
 import { Layout } from '../components/layout';
@@ -10,10 +10,11 @@ require('@solana/wallet-adapter-react-ui/styles.css');
 require('../styles/globals.css');
 
 const App: FC<AppProps> = ({ Component, pageProps }) => {
+
   return (
     <ContextProvider>
       <Layout>
-        <IconContext.Provider value={{ className: 'react-icons' }} />
+        <IconContext.Provider value={{ className: "react-icons" }} />
         <Component {...pageProps} />
       </Layout>
     </ContextProvider>

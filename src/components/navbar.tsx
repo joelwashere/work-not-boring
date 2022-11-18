@@ -14,16 +14,13 @@ import {
   HiQuestionMarkCircle
 } from 'react-icons/hi';
 
-const WalletDisconnectButtonDynamic = dynamic(
-  async () => (await import('@solana/wallet-adapter-react-ui')).WalletDisconnectButton,
-  { ssr: false }
-);
 const WalletMultiButtonDynamic = dynamic(
   async () => (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
   { ssr: false }
 );
 
 export const Navbar: FC = () => {
+
   return (
     <nav className="flex h-10 w-full py-0 px-4 justify-between items-center shadow-xl">
       <Link href={"/"}>

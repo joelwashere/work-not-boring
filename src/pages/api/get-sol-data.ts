@@ -19,8 +19,6 @@ export default async function handler(
     { headers: { "X-CMC_PRO_API_KEY": apiKey }, params: { id: "5426" } })
   .then(res => {
     solPrice = res.data.data["5426"].quote.USD.price;
-    //setPrice(res.data.data["5426"].quote.USD.price);
-    //console.log(res.data.data["5426"].quote.USD.price);
   }).catch(error => console.log(error))
 
   res.status(200).json({ price: solPrice });

@@ -24,7 +24,7 @@ export const Navbar: FC = () => {
   return (
     <nav className="flex h-10 w-full py-0 px-4 justify-between items-center shadow-xl">
       <Link href={"/"}>
-        <div className="text-2xl font-bold text-black p-1 hover:cursor-pointer hover:text-blue-500">
+        <div className="text-xl md:text-2xl font-bold text-black p-1 hover:cursor-pointer hover:text-blue-500">
           Work Not Boring
         </div>
       </Link>
@@ -93,10 +93,10 @@ const DropdownMenu = (props: any) => {
   });
 
   return (
-    <div ref={menuRef} className="relative bg-black rounded-2xl p-0.5 w-44 text-white hover:bg-stone-700">
+    <div ref={menuRef} className="relative bg-black rounded-2xl p-0.5 md:w-44 text-white hover:bg-stone-700">
       <a href="#" className="flex" onClick={() => setOpen(!open)}>
         {props.icon}
-        <span className="mx-auto">{props.text}</span>
+        <span className="hidden md:block mx-auto">{props.text}</span>
 
         <div className="absolute top-7 w-full">
           {open &&

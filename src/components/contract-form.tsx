@@ -28,11 +28,11 @@ export const ContractForm: FC = () => {
             placeholder="Wallet address / Username" />
           </div>
         </div>
-        <div className="grid grid-cols-2 divide-x-2 divide-white w-full h-full mt-6 p-2 shadow-lg border-2 border-black rounded">
+        <div className="grid grid-cols-auto md:grid-cols-2 md:divide-x-2 divide-white w-full h-full mt-6 p-2 shadow-lg border-2 border-black rounded">
           <div>
             <h2 className="mb-2 underline underline-offset-2 decoration-2 font-semibold">Compensation</h2>
             <div className="w-4 relative">
-              <input type={"number"} min={1} className="font-bold p-2 pl-8 border border-2 border-black rounded-2xl w-52 md:min-w-max" placeholder="SOL" />
+              <input type={"number"} min={1} className="font-bold text-black p-2 pl-8 border border-2 border-black rounded-2xl w-52 md:min-w-max" placeholder="SOL" />
               <Image src={solanaImg} width={20} height={20} alt="" className="absolute left-2 top-4"/>
             </div>
             <div>
@@ -40,13 +40,13 @@ export const ContractForm: FC = () => {
               <button className="bg-white text-black text-5xl p-2 pb-4 w-20 h-20 shadow border border-black hover:bg-slate-300 hover:border-2">+</button>
             </div>
           </div>
-          <div className="text-end">
+          <div className="md:text-end mt-4 md:mt-0">
             <h2 className="mb-2 underline underline-offset-2 decoration-2 font-semibold">Deliverables</h2>
-            <div className={"w-full h-full " + (!enlarged && "relative")}>
-              <textarea className={"w-5/6 h-4/5 p-1 border-2 border-black" +
-              (enlarged && " enlarged")} placeholder="Enter deliverables here..."/>
+            <div className={"w-full md:h-full max-h-96 md:max-h-full" + (!enlarged && "relative")}>
+              <textarea className={"w-5/6 h-4/5 p-1 border-2 border-black z-10" +
+              (enlarged && " enlarged")} placeholder="Enter deliverables here..." />
               {/** TODO: Implement enlarge text area functionality */}
-              <button className={"absolute right-4 bottom-14 bg-black text-white rounded p-1 text-sm border-2 border-transparent hover:border-2 hover:border-sky-200 "}
+              <button className={enlarged ? "relative" : "md:absolute" + " right-10 bottom-28 z-10 bg-black text-white rounded mx-2 md:mx-auto p-1 text-sm border-2 border-transparent hover:border-2 hover:border-sky-200"}
               onClick={() => setEnlarged(!enlarged)}>{!enlarged ? "Enlarge" : "Reduce"}</button>
             </div>
           </div>

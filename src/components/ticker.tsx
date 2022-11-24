@@ -15,9 +15,10 @@ export const Ticker: FC = () => {
   const [convertedSolValue, setConvertedSolValue] = useState(0);
 
   useEffect(() => {
-    if( usdValue.current !== null )
-      usdValue.current.value = data?.price.toFixed(1).toString()
+    if(usdValue.current !== null && Number(usdValue.current.value) === data?.price)
+      usdValue.current.value = data?.price.toFixed(2).toString()
     usdToSol()
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, data]);
 
   function usdToSol() {
@@ -39,7 +40,7 @@ export const Ticker: FC = () => {
           </span>
           <span className="mx-2 text-black">|</span>
           <span className="text-yellow-300">
-            $ { data?.price.toFixed(3) }
+            $ { data?.price.toFixed(2) }
           </span>
         </p>
         {open &&

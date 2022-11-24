@@ -13,8 +13,8 @@ export const HomeView: FC = ({ }) => {
       <Statbar />
       <div className="relative">
         {!page ? <ContractForm /> : <ContractList />}
-        <button className="absolute right-2 bottom-5 text-white font-bold bg-sky-500
-           p-2 px-5 rounded-2xl drop-shadow-md hover:text-gray-800" onClick={() => {setPage(!page)}}>
+        <button className="float-right text-white font-bold bg-sky-500
+           p-2 px-5 mt-4 rounded-2xl drop-shadow-md hover:text-gray-800" onClick={() => {setPage(!page)}}>
             {page === false ? "Show Contracts" : "Create New Contract"}
         </button>
       </div>

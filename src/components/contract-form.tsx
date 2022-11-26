@@ -9,7 +9,7 @@ export const ContractForm: FC = () => {
   const [enlarged, setEnlarged] = useState(false);
 
   return (
-    <div className="relative bg-slate-900 text-white p-5 rounded">
+    <div className="relative md:bg-slate-900 text-white p-5 rounded">
       <div className="w-full max-w-5xl h-2/4 flex flex-col items-center">
         {/** TODO: Implement tooltips for all elements that need them */}
         <h1 className="text-2xl md:text-3xl mb-4 w-fit p-2">
@@ -28,7 +28,7 @@ export const ContractForm: FC = () => {
             placeholder="Wallet address / Username" />
           </div>
         </div>
-        <div className="flex w-full h-full mt-6 p-4 shadow-lg border-2 border-black rounded">
+        <div className="flex flex-col md:flex-row w-full h-full mt-6 p-4 shadow-lg border-2 border-black rounded">
           <div className="mx-auto">
             <h2 className="mb-2 underline underline-offset-2 decoration-2 font-semibold">Compensation</h2>
             <div className="w-4 relative">

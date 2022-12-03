@@ -35,7 +35,7 @@ export const Navbar: FC = () => {
           {/*TODO: Implement custodial account backend
            <WalletAddressContainer address={"9Y29...Vpbb"}/> */}
           <WalletMultiButtonDynamic className="mx-2"/>
-          <DropdownMenu icon={<HiOutlineUserCircle size={24} color="white" />} text={"Big Joel"} />
+          <DropdownMenu icon={<HiOutlineUserCircle size={24} color="white" />} text={"[User Name]"} />
         </ul>
       </div>
     </nav>

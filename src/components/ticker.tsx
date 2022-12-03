@@ -38,7 +38,7 @@ export const Ticker: FC = () => {
           <span className="bg-clip-text bg-gradient-to-r from-[#03E1FF] via-[#00FFA3] to-[#DC1FFF]">
             SOLUSD
           </span>
-          <span className="mx-2 text-black">|</span>
+          <span className="mx-2 text-slate-600">|</span>
           <span className="text-yellow-300">
             $ { data?.price.toFixed(2) }
           </span>

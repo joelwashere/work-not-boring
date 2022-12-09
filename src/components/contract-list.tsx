@@ -1,4 +1,8 @@
-import { FC } from "react";
+import { FC, ReactElement } from "react";
+
+import * as anchor from '@project-serum/anchor';
+import { useAnchorWallet } from "@solana/wallet-adapter-react";
+import { Program } from "@project-serum/anchor";
 
 export const ContractList: FC = (props: any) => {
 
@@ -19,7 +23,6 @@ export const ContractList: FC = (props: any) => {
         Contracts
       </h1>
       <div className="grid auto-cols-auto md:grid-cols-4 gap-8 p-2 pt-4">
-
       </div>
     </div>
     </div>

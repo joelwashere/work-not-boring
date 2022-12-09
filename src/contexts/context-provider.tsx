@@ -15,6 +15,7 @@ import { FC, ReactNode, useCallback, useMemo } from 'react';
 import { AutoConnectProvider, useAutoConnect } from './auto-connect-provider';
 import { NetworkConfigurationProvider, useNetworkConfiguration } from './network-configuration-provider';
 import dynamic from "next/dynamic";
+import { toast } from 'react-toastify';
 
 const ReactUIWalletModalProviderDynamic = dynamic(
   async () =>
@@ -23,10 +24,9 @@ const ReactUIWalletModalProviderDynamic = dynamic(
 );
 
 const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
-  const { autoConnect } = useAutoConnect();
   const { networkConfiguration } = useNetworkConfiguration();
-  const network = WalletAdapterNetwork.Devnet;
-  //const network = networkConfiguration as WalletAdapterNetwork;
+  //const network = WalletAdapterNetwork.Devnet;
+  const network = networkConfiguration as WalletAdapterNetwork;
   const endpoint = useMemo(() => clusterApiUrl(network), [network]);
 
   console.log(network);
@@ -46,14 +46,14 @@ const WalletContextProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
   const onError = useCallback(
     (error: WalletError) => {
-      //TODO: notification
+      toast(error.message);
       console.error(error);
   }, []);
 
   return (
     // TODO: updates needed for updating and referencing endpoint: wallet adapter rework
     <ConnectionProvider endpoint={endpoint}>
-      <WalletProvider wallets={wallets} onError={onError} autoConnect={autoConnect}>
+      <WalletProvider wallets={wallets} onError={onError} autoConnect>
         <WalletModalProvider>
           {children}
         </WalletModalProvider>

@@ -24,7 +24,7 @@ export const Navbar: FC = () => {
   return (
     <nav className="flex h-10 w-full py-0 px-4 justify-between items-center shadow-xl">
       <Link href={"/"}>
-        <div className="text-xl md:text-2xl font-bold text-black p-1 hover:cursor-pointer hover:text-blue-500">
+        <div className="text-black text-xl md:text-2xl font-bold text-black p-1 hover:cursor-pointer hover:text-blue-500">
           Work Not Boring
         </div>
       </Link>
@@ -32,7 +32,7 @@ export const Navbar: FC = () => {
         <ul className="max-w-full flex items-center">
           {/*TODO: Implement chat backend
           <NavItem href="/chat" text="Chat" /> */}
-          {/*TODO: Implement custodial account backend
+          {/*TODO: Implement non-custodial account backend
            <WalletAddressContainer address={"9Y29...Vpbb"}/> */}
           <WalletMultiButtonDynamic className="mx-2"/>
           <DropdownMenu icon={<HiOutlineUserCircle size={24} color="white" />} text={"[User Name]"} />

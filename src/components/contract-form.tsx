@@ -3,9 +3,14 @@ import Image from 'next/image'
 import { HiSwitchHorizontal, HiQuestionMarkCircle } from "react-icons/hi";
 
 import solanaImg from '../../public/solana.svg'
-import { useWallet } from "@solana/wallet-adapter-react";
+import { useAnchorWallet, useWallet } from "@solana/wallet-adapter-react";
+import { toast } from "react-toastify";
+import { initializeEscrow } from "../utils/use-escrow";
+import { PublicKey } from "@solana/web3.js";
 
 export const ContractForm: FC = () => {
+
+  const wallet = useAnchorWallet();
 
   const [enlarged, setEnlarged] = useState(false);
   const [isClient, setIsClient] = useState(true);
@@ -28,12 +33,18 @@ export const ContractForm: FC = () => {
   }
 
   function onClickSend() {
-
+    if(wallet && contractorInputRef.current && clientInputRef.current) {
+      toast("Sending contract...");
+      initializeEscrow(wallet,
+        new PublicKey(isClient ? contractorInputRef.current.value : clientInputRef.current.value));
+    } else {
+      toast("Transaction failed. Wallet not connected.");
+    }
   }
 
   return (
     <div className="relative md:bg-slate-900 text-white p-5 rounded">
-      <div className="w-full max-w-5xl h-2/4 flex flex-col items-center">
+      <div className="w-full max-w-5xl md:h-2/4 flex flex-col items-center">
         {/** TODO: Implement tooltips for all elements that need them */}
         <h1 className="text-2xl md:text-3xl mb-4 w-fit p-2">
           Create Contract
@@ -68,7 +79,6 @@ export const ContractForm: FC = () => {
             <div className={(!enlarged ? "relative " : "") + "flex w-full md:h-full max-h-96 md:max-h-full" + (!enlarged && "relative")}>
               <textarea cols={40} className={"text-black p-2 border-2 border-black z-10 rounded-xl resize-none" +
               (enlarged ? " w-2/4 h-5/6 enlarged" : " w-full h-full")} placeholder="Enter deliverables here..." />
-              {/** TODO: Implement enlarge text area functionality */}
               <button className={"absolute right-2 bottom-2 z-20 bg-black text-white rounded mx-2 md:mx-auto p-1 text-sm border-2 border-transparent hover:border-2 hover:border-sky-200"}
               onClick={() => setEnlarged(!enlarged)}>{!enlarged ? "Enlarge" : "Reduce"}</button>
             </div>

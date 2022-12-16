@@ -1,9 +1,5 @@
 import { FC, ReactElement } from "react";
 
-import * as anchor from '@project-serum/anchor';
-import { useAnchorWallet } from "@solana/wallet-adapter-react";
-import { Program } from "@project-serum/anchor";
-
 export const ContractList: FC = (props: any) => {
 
   function Contract(props: any) {

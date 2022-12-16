@@ -49,7 +49,7 @@ export function OnboardingButton() {
     if (MetaMaskOnboarding.isMetaMaskInstalled()) {
       window.ethereum
         .request({ method: "eth_requestAccounts" })
-        .then((newAccounts) => setAccounts(newAccounts));
+        .then((newAccounts: any) => setAccounts(newAccounts));
     } else {
       onboarding.current?.startOnboarding();
     }

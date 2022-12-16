@@ -10,17 +10,17 @@ import { ethers } from "ethers";
 
 export const ContractForm: FC = () => {
 
-  const provider = new ethers.providers.Web3Provider(window.ethereum)
-  const [walletAddress,  setWalletAddress] = useState<string>(null);
-
-  const connectWallet = async () => {
-    if(typeof window.ethereum !== "undefined") {
-      await provider.send("eth_requestAccounts", []);
-    }
-  }
-
-  connectWallet();
-  const signer = provider.getSigner()
+  //const provider = new ethers.providers.Web3Provider(window.ethereum)
+  //const [walletAddress,  setWalletAddress] = useState<string>("");
+//
+  //const connectWallet = async () => {
+  //  if(typeof window.ethereum !== "undefined") {
+  //    await provider.send("eth_requestAccounts", []);
+  //  }
+  //}
+//
+  //connectWallet();
+  //const signer = provider.getSigner()
 
   const [enlarged, setEnlarged] = useState(false);
   const [isClient, setIsClient] = useState(false);
@@ -35,24 +35,24 @@ export const ContractForm: FC = () => {
   async function onSwitchSide() {
     setIsClient(!isClient);
     console.log(isClient);
-    if(!walletAddress) setWalletAddress(await signer.getAddress());
-    if(isClient && clientInputRef.current) {
-      clientInputRef.current.value = walletAddress ? walletAddress : "Could not find wallet";
-      if(contractorInputRef.current) contractorInputRef.current.value = "";
-    }
-    else if(!isClient && contractorInputRef.current) {
-      contractorInputRef.current.value = walletAddress ? walletAddress : "Could not find wallet";
-      if(clientInputRef.current) clientInputRef.current.value = "";
-    }
+    //if(!walletAddress) setWalletAddress(await signer.getAddress());
+    //if(isClient && clientInputRef.current) {
+    //  clientInputRef.current.value = walletAddress ? walletAddress : "Could not find wallet";
+    //  if(contractorInputRef.current) contractorInputRef.current.value = "";
+    //}
+    //else if(!isClient && contractorInputRef.current) {
+    //  contractorInputRef.current.value = walletAddress ? walletAddress : "Could not find wallet";
+    //  if(clientInputRef.current) clientInputRef.current.value = "";
+    //}
   }
 
   function onClickSend() {
-    if(walletAddress && contractorInputRef.current && clientInputRef.current) {
-      toast("Sending contract...");
-      initializeEscrow();
-    } else {
-      toast("Transaction failed. Wallet not connected.");
-    }
+    //if(walletAddress && contractorInputRef.current && clientInputRef.current) {
+    //  toast("Sending contract...");
+    //  initializeEscrow();
+    //} else {
+    //  toast("Transaction failed. Wallet not connected.");
+    //}
   }
 
   return (

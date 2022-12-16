@@ -5,13 +5,10 @@ import { Ticker } from "./ticker"
 
 export const Layout = ({ children }: any) => {
     return (
-      <>
-        <div className="h-screen overflow-hidden">
-          <Navbar />
-          <Ticker />
-          <main>{children}</main>
-          <Footer />
-        </div>
-      </>
+      <div>
+        {/* <Ticker /> */}
+        <div>{children}</div>
+        <Footer />
+      </div>
     )
   }

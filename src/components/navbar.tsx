@@ -13,18 +13,14 @@ import {
   HiOutlineUserCircle,
   HiQuestionMarkCircle
 } from 'react-icons/hi';
+import { OnboardingButton } from './onboarding-button';
 
-const WalletMultiButtonDynamic = dynamic(
-  async () => (await import('@solana/wallet-adapter-react-ui')).WalletMultiButton,
-  { ssr: false }
-);
-
-export const Navbar: FC = () => {
+export const Navbar: FC = (props: any) => {
 
   return (
-    <nav className="flex h-10 w-full py-0 px-4 justify-between items-center shadow-xl">
+    <nav className={"absolute flex h-10 w-full py-6 px-3 justify-between items-center "+ (props.style)} >
       <Link href={"/"}>
-        <div className="text-black text-xl md:text-2xl font-bold text-black p-1 hover:cursor-pointer hover:text-blue-500">
+        <div className="text-center text-xl md:text-2xl lg:text-3xl font-bold text-[#f2f2f2] p-1 hover:cursor-pointer">
           Work Not Boring
         </div>
       </Link>
@@ -34,8 +30,8 @@ export const Navbar: FC = () => {
           <NavItem href="/chat" text="Chat" /> */}
           {/*TODO: Implement non-custodial account backend
            <WalletAddressContainer address={"9Y29...Vpbb"}/> */}
-          <WalletMultiButtonDynamic className="mx-2"/>
-          <DropdownMenu icon={<HiOutlineUserCircle size={24} color="white" />} text={"[User Name]"} />
+          {/*<OnboardingButton /> */}
+          {/*<DropdownMenu icon={<HiOutlineUserCircle size={24} color="white" />} text={"[User Name]"} />*/}
         </ul>
       </div>
     </nav>
@@ -96,7 +92,7 @@ const DropdownMenu = (props: any) => {
     <div ref={menuRef} className="relative bg-black rounded-2xl p-0.5 md:w-44 text-white hover:bg-stone-700">
       <a href="#" className="flex" onClick={() => setOpen(!open)}>
         {props.icon}
-        <span className="hidden md:block mx-auto">{props.text}</span>
+        <span className="hidden md:block m-auto">{props.text}</span>
 
         <div className="absolute top-7 w-full">
           {open &&

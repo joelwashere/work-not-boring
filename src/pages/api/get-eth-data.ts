@@ -1,6 +1,5 @@
 import axios from 'axios';
 import type { NextApiRequest, NextApiResponse } from 'next'
-import { useState } from 'react';
 
 type ResponseData = {
   price: Number
@@ -16,9 +15,9 @@ export default async function handler(
   let solPrice = 0;
 
   await axios.get("https://pro-api.coinmarketcap.com/v2/cryptocurrency/quotes/latest",
-    { headers: { "X-CMC_PRO_API_KEY": apiKey }, params: { id: "5426" } })
+    { headers: { "X-CMC_PRO_API_KEY": apiKey }, params: { id: "1027" } })
   .then(res => {
-    solPrice = res.data.data["5426"].quote.USD.price;
+    solPrice = res.data.data["1027"].quote.USD.price;
   }).catch(error => console.log(error))
 
   res.status(200).json({ price: solPrice });

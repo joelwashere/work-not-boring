@@ -13,7 +13,6 @@ import {
   HiOutlineUserCircle,
   HiQuestionMarkCircle
 } from 'react-icons/hi';
-import { OnboardingButton } from './onboarding-button';
 
 export const Navbar: FC = (props: any) => {
 

@@ -65,13 +65,13 @@ export const ContractForm: FC = () => {
         <div className={"flex flex-col md:flex-row items-center justify-center " + (isClient ? "" : "d")}>
           <div className="mx-10">
             <h2 className="font-semibold mb-1">Client Wallet</h2>
-            <input ref={clientInputRef} size={30} readOnly={!isClient} className="text-black shadow-md font-bold p-2 border border-2 border-black rounded-2xl"
+            <input ref={clientInputRef} size={30} readOnly={!isClient} className="text-black shadow-md font-bold p-2 border border-4 border-black rounded-2xl"
             placeholder="Wallet address / Username" />
           </div>
           <button className="bg-white mt-6 p-1 rounded-xl hover:text-slate-500" onClick={() => onSwitchSide()}><HiSwitchHorizontal size={30} /></button>
           <div className="mx-10 text-end relative">
             <h2 className="font-semibold mb-1">Contractor Wallet</h2>
-            <input ref={contractorInputRef} size={30} readOnly={isClient} className="text-black shadow-md font-bold p-2 border border-2 border-black rounded-2xl"
+            <input ref={contractorInputRef} size={30} readOnly={isClient} className="text-black shadow-md font-bold p-2 border border-4 border-black rounded-2xl"
             placeholder="Wallet address / Username" />
           </div>
         </div>
@@ -79,20 +79,20 @@ export const ContractForm: FC = () => {
           <div className="mx-auto">
             <h2 className="mb-2 underline underline-offset-2 decoration-2 font-semibold">Compensation</h2>
             <div className="w-4 relative">
-              <input type={"number"} min={1} className="font-bold text-black p-2 pl-8 border border-2 border-black rounded-2xl w-52 md:min-w-max" placeholder="ETH" />
+              <input type={"number"} min={1} className="font-bold text-black p-2 pl-8 border border-4 border-black rounded-2xl w-52 md:min-w-max" placeholder="ETH" />
               <Image src={ethImg} width={20} height={20} alt="" className="absolute left-2 top-3"/>
             </div>
             <div>
               <h3 className="text-sm mb-2 font-semibold mt-2">Other Assets</h3>
-              <button className="bg-white text-black text-5xl p-2 pb-4 w-20 h-20 shadow border border-black hover:bg-slate-300 hover:border-2 rounded-xl">+</button>
+              <button className="bg-white text-black text-5xl p-2 pb-4 w-20 h-20 shadow border-2 border-black hover:bg-slate-300 hover:border-4 rounded-xl">+</button>
             </div>
           </div>
           <div className="md:mx-auto my-7 md:mt-0">
             <h2 className="mb-2 underline underline-offset-2 decoration-2 font-semibold">Terms</h2>
             <div className={(!enlarged ? "relative " : "") + "flex w-full md:h-full max-h-96 md:max-h-full" + (!enlarged && "relative")}>
-              <textarea cols={40} className={"text-black p-2 border-2 border-black z-10 rounded-xl resize-none" +
+              <textarea cols={40} className={"text-black p-2 border-4 border-black z-10 rounded-xl resize-none" +
               (enlarged ? " w-2/4 h-5/6 enlarged" : " w-full h-full")} placeholder="Enter deliverables, etc..." />
-              <button className={"absolute right-2 bottom-2 z-20 bg-black text-white rounded mx-2 md:mx-auto p-1 text-sm border-2 border-transparent hover:border-2 hover:border-sky-200"}
+              <button className={"absolute right-2 bottom-2 z-20 bg-black text-white rounded mx-2 md:mx-auto p-1 text-sm border-4 border-transparent hover:border-4 hover:border-sky-200"}
               onClick={() => setEnlarged(!enlarged)}>{!enlarged ? "Enlarge" : "Reduce"}</button>
             </div>
           </div>

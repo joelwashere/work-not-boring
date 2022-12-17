@@ -13,8 +13,8 @@ export const ContractList: FC = (props: any) => {
   }
 
   return (
-    <div className="bg-slate-900 p-7 rounded">
-    <div className="border-2 border-white p-4 mb-14 divide-y-2 divide-white rounded text-white">
+    <div className="bg-[#eae3ea] p-7 rounded">
+    <div className="border-2 border-black p-4 mb-14 divide-y-2 divide-white rounded text-white">
       <h1 className="text-3xl font-bold w-fit p-2">
         Contracts
       </h1>

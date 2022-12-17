@@ -4,6 +4,7 @@ import { FC, useState } from "react";
 import { Navbar } from "../../components/navbar";
 import { About } from "../../components/about";
 import { Landing } from "../../components/landing";
+import { ContactUs } from "../../components/contactus";
 
 export const HomeView: FC = ({ }) => {
 
@@ -14,6 +15,7 @@ export const HomeView: FC = ({ }) => {
       <Navbar />
       <Landing />
       <About />
+      <ContactUs />
     </>
   );
 }

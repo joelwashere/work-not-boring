@@ -8,7 +8,7 @@ export const Statbar: FC = (props: any) => {
         </div>
         <div className="relative rounded-lg px-7 py-3 bg-[#eae3ea] leading-none
           flex justify-center items-center divide-x divide-gray-600">
-            <span className="pr-6 text-black font-semibold">wnb 0.9.7</span>
+            <span className="pr-6 text-black font-semibold">wnb 0.9.8</span>
             <span className="pl-6 text-black font-semibold">
               <span className="text-lg font-semibold">4</span> Contracts Completed
             </span>
